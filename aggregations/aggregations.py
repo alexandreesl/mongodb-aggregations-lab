@@ -6,7 +6,7 @@ client = MongoClient('mongodb://localhost:27017/?readPreference=primary&appname=
 
 def run(pipeline):
     result = client['comic-book']['DC'].aggregate(
-        pipeline
+        pipeline, allowDiskUse=True
     )
 
     pprint.pprint(list(result))
