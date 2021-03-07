@@ -4,8 +4,8 @@ import pprint
 client = MongoClient('mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false')
 
 
-def run(pipeline):
-    result = client['comic-book']['DC'].aggregate(
+def run(collection, pipeline):
+    result = client['comic-book'][collection].aggregate(
         pipeline, allowDiskUse=True
     )
 
